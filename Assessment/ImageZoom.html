@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="cssWork.css">
+
+<title>Show Image using URLs from JSON file using JavaScript</title>
+<style>
+ #products {
+
+width: 200;
+
+text-align: center;
+
+overflow: hidden;
+
+padding: 3px;
+
+font: 14px Calibri;
+
+border:solid 1px #ddd;
+width : 100%;
+
+}
+
+</style>
+
+</head>
+
+<body onload="showDataWithImages()">
+
+<div style="text-align:center">
+<h1> E-Products </h1>
+</div>
+
+<br>
+ 
+
+ 
+
+ 
+
+ 
+
+<div id='products' style="height: 60%"></div>
+
+<div id="myModal" class="modal">
+<span class="close">&times;</span>
+<img class="modal-content" id="img01">
+<div id="caption"></div>
+</div>
+
+ 
+</body>
+
+<script>
+var arrItems = [];
+
+function showDataWithImages() {
+
+
+ 
+
+function reportStatus() {
+
+debugger;
+
+if (xhr.readyState == 4)               // Request completed.
+
+showTheList(this.responseText);     // All set. Now show the data.
+
+}
+
+
+
+ 
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "index.json", true);
+
+xhr.onreadystatechange = reportStatus;
+
+
+
+xhr.send();
+
+
+
+
+
+}
+
+function showTheList(jsonData) {
+
+//if(jsonData == "")
+ 
+
+arrItems = JSON.parse('{"id":"shop/new/all-new","name":"All New","categoryType":"subcat","groups":[{"id":"organic-watercolor-wavelines-duvet-cover-shams-b2674","name":"Organic Watercolor Wavelines Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/organic-watercolor-wavelines-duvet-cover-shams-b2674/"},"priceRange":{"regular":{"high":109,"low":19},"selling":{"high":81,"low":14},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0026/organic-watercolor-wavelines-duvet-cover-shams-2-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0026/organic-watercolor-wavelines-duvet-cover-shams-2-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0161/organic-watercolor-wavelines-duvet-cover-shams-3-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0026/organic-watercolor-wavelines-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0026/organic-watercolor-wavelines-duvet-cover-shams-1-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":7,"id":"organic"},{"bopisSuppress":false,"rank":9,"id":"fairTrade"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"organic-watercolor-wavelines-duvet-cover-shams-b2674","type":"GROUP_REVIEWS"}},{"id":"organic-falling-petals-duvet-cover-shams-b2675","name":"Organic Falling Petals Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/organic-falling-petals-duvet-cover-shams-b2675/"},"priceRange":{"regular":{"high":109,"low":19},"selling":{"high":81,"low":14},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0015/organic-falling-petals-duvet-cover-shams-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0015/organic-falling-petals-duvet-cover-shams-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0161/organic-falling-petals-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0162/organic-falling-petals-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0161/organic-falling-petals-duvet-cover-shams-2-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":7,"id":"organic"},{"bopisSuppress":false,"rank":9,"id":"fairTrade"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"organic-falling-petals-duvet-cover-shams-b2675","type":"GROUP_REVIEWS"}},{"id":"organic-falling-petals-sheet-set-b2676","name":"Organic Falling Petals Sheet Set","links":{"www":"https://www.westelm.com/products/organic-falling-petals-sheet-set-b2676/"},"priceRange":{"regular":{"high":109,"low":19},"selling":{"high":81,"low":14},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0161/organic-falling-petals-sheet-set-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0161/organic-falling-petals-sheet-set-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201914/0162/organic-falling-petals-sheet-set-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":7,"id":"organic"},{"bopisSuppress":false,"rank":9,"id":"fairTrade"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"organic-falling-petals-sheet-set-b2676","type":"GROUP_REVIEWS"}},{"id":"wavy-jacquard-duvet-cover-shams-b2694","name":"Organic Wavy Jacquard Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/wavy-jacquard-duvet-cover-shams-b2694/"},"priceRange":{"regular":{"high":199,"low":34},"selling":{"high":149,"low":25},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/organic-wavy-jacquard-duvet-cover-shams-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/organic-wavy-jacquard-duvet-cover-shams-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/organic-wavy-jacquard-duvet-cover-shams-2-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":7,"id":"organic"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"wavy-jacquard-duvet-cover-shams-b2694","type":"GROUP_REVIEWS"}},{"id":"broken-lines-linen-cotton-duvet-cover-shams-b2689","name":"Broken Lines Belgian Flax Linen Cotton Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/broken-lines-linen-cotton-duvet-cover-shams-b2689/"},"priceRange":{"regular":{"high":199,"low":44},"selling":{"high":149,"low":33},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0014/broken-lines-belgian-flax-linen-cotton-duvet-cover-shams-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201916/0014/broken-lines-belgian-flax-linen-cotton-duvet-cover-shams-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201909/0033/broken-lines-linen-cotton-duvet-cover-shams-1-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201909/0052/broken-lines-linen-cotton-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201911/0001/broken-lines-linen-cotton-duvet-cover-shams-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":9,"id":"fairTrade"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"broken-lines-linen-cotton-duvet-cover-shams-b2689","type":"GROUP_REVIEWS"}},{"id":"organic-crinkle-duvet-cover-shams-white-b2691","name":"Organic Crinkle Duvet Cover + Shams - White","links":{"www":"https://www.westelm.com/products/organic-crinkle-duvet-cover-shams-white-b2691/"},"priceRange":{"regular":{"high":159,"low":29},"selling":{"high":119,"low":21},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201910/0032/organic-crinkle-duvet-cover-shams-white-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201910/0032/organic-crinkle-duvet-cover-shams-white-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201910/0028/organic-crinkle-duvet-cover-shams-white-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":7,"id":"organic"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"organic-crinkle-duvet-cover-shams-white-b2691","type":"GROUP_REVIEWS"}},{"id":"organic-crinkle-duvet-cover-shams-blue-bird-b2692","name":"Organic Crinkle Duvet Cover + Shams - Blue Bird","links":{"www":"https://www.westelm.com/products/organic-crinkle-duvet-cover-shams-blue-bird-b2692/"},"priceRange":{"regular":{"high":159,"low":29},"selling":{"high":119,"low":21},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201910/0011/organic-crinkle-duvet-cover-shams-blue-bird-1-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201910/0011/organic-crinkle-duvet-cover-shams-blue-bird-1-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201910/0011/organic-crinkle-duvet-cover-shams-blue-bird-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201911/0015/organic-crinkle-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201911/0001/organic-crinkle-duvet-cover-shams-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":7,"id":"organic"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"organic-crinkle-duvet-cover-shams-blue-bird-b2692","type":"GROUP_REVIEWS"}},{"id":"roar-rabbit-overlapping-tiles-duvet-cover-shams-b2686","name":"Roar + Rabbit&#8482; Overlapping Tiles Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/roar-rabbit-overlapping-tiles-duvet-cover-shams-b2686/"},"priceRange":{"regular":{"high":229,"low":39},"selling":{"high":159.99,"low":29},"type":"sale"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/roar-rabbit-overlapping-tiles-duvet-cover-shams-1-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/roar-rabbit-overlapping-tiles-duvet-cover-shams-1-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/roar-rabbit-overlapping-tiles-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201909/0052/roar-rabbit-overlapping-tiles-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201909/0052/roar-rabbit-overlapping-tiles-duvet-cover-shams-1-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201911/0001/roar-rabbit-overlapping-tiles-duvet-cover-shams-m.jpg","height":363}],"swatches":[],"messages":[".99 Items Ship Free with code ONTHEWAY"],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"roar-rabbit-overlapping-tiles-duvet-cover-shams-b2686","type":"GROUP_REVIEWS"}},{"id":"wide-channel-seersucker-duvet-cover-shams-b2693","name":"Wide Channel Seersucker Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/wide-channel-seersucker-duvet-cover-shams-b2693/"},"priceRange":{"regular":{"high":159,"low":29},"selling":{"high":109.99,"low":19.99},"type":"sale"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/wide-channel-seersucker-duvet-cover-shams-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/wide-channel-seersucker-duvet-cover-shams-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/wide-channel-seersucker-duvet-cover-shams-1-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201909/0052/wide-channel-seersucker-duvet-cover-shams-m.jpg","height":363}],"swatches":[],"messages":[".99 Items Ship Free with code ONTHEWAY"],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":9,"id":"fairTrade"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"wide-channel-seersucker-duvet-cover-shams-b2693","type":"GROUP_REVIEWS"}},{"id":"plaid-seersucker-duvet-cover-shams-b2688","name":"Plaid Seersucker Duvet Cover + Shams","links":{"www":"https://www.westelm.com/products/plaid-seersucker-duvet-cover-shams-b2688/"},"priceRange":{"regular":{"high":159,"low":29},"selling":{"high":119,"low":21},"type":"special"},"thumbnail":{"size":"m","meta":"","alt":"","rel":"thumbnail","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/plaid-seersucker-duvet-cover-shams-1-m.jpg","height":363},"hero":{"size":"m","meta":"","alt":"","rel":"hero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/plaid-seersucker-duvet-cover-shams-1-m.jpg","height":363},"images":[{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201917/0014/plaid-seersucker-duvet-cover-shams-m.jpg","height":363},{"size":"m","meta":"","alt":"","rel":"althero","width":363,"href":"https://www.westelm.com/weimgs/ab/images/wcm/products/201911/0001/plaid-seersucker-duvet-cover-shams-m.jpg","height":363}],"swatches":[],"messages":[],"flags":[{"bopisSuppress":false,"rank":3,"id":"newcore"},{"bopisSuppress":false,"rank":9,"id":"fairTrade"}],"reviews":{"recommendationCount":0,"likelihood":0,"reviewCount":0,"averageRating":0,"id":"plaid-seersucker-duvet-cover-shams-b2688","type":"GROUP_REVIEWS"}}],"totalPages":71,"categories":[]}');              // Populate array with JSON data.
+
+
+var div = document.getElementById('products');     // The parent <div>.
+
+div.innerHTML = '';
+
+
+// Loop through data in the JSON array.
+
+for (i = 0; i <= arrItems.groups.length - 1; i++) {
+
+
+
+// Create two <div> elements, one for the name and the other to show the image.
+
+var divLeft = document.createElement('label');
+
+divLeft.innerHTML = arrItems.groups[i].name;
+
+
+var br1 = document.createElement('br');
+ 
+
+var img = document.createElement('img');    // Create an <img> element.
+
+img.src = arrItems.groups[i].hero.href;
+
+img.id = i;
+
+ 
+
+var divRight = document.createElement('div');
+
+divRight.setAttribute('style', 'border-left: solid 1px #ddd;');
+
+divRight.appendChild(img);
+
+
+// Add the child DIVs to parent DIV.
+divLeft.appendChild(br1);
+div.appendChild(divLeft);
+
+
+
+div.appendChild(divRight);
+
+
+
+var p1 = document.createElement('div');
+
+p1.innerHTML = "Regular Price : $" + arrItems.groups[0].priceRange.regular.high;
+
+
+
+var p2 = document.createElement('div');
+
+p2.innerHTML = "Selling Price : $" + arrItems.groups[0].priceRange.selling.high;
+
+
+
+divRight.appendChild(p1);
+
+divRight.appendChild(p2);
+
+var b2 = document.createElement('br');
+
+var b3 = document.createElement('br');
+
+
+
+var button1 = document.createElement('button');
+
+button1.innerHTML =  "SELECT";
+
+
+divRight.appendChild(b2);
+
+divRight.appendChild(button1);
+
+divRight.appendChild(b3);
+
+divRight.appendChild(b3);
+
+
+
+for (j = 0; j <= arrItems.groups[i].images.length - 1; j++) {
+
+var img1 = document.createElement('img'); 
+img1.setAttribute('style', 'width: 100px;height : 100px;'); img1.id="myImg";
+
+
+img1.src = arrItems.groups[i].images[j].href;
+img1.addEventListener("click", loadPopuop); var span1 =  document.createElement('span'); 
+span1.innerHTML   += '&nbsp;&nbsp;';
+divRight.appendChild(span1);
+divRight.appendChild(img1);
+
+}
+
+var hr = document.createElement('hr');
+
+divRight.appendChild(hr);
+
+
+var br = document.createElement('br');
+
+div.appendChild(br);
+ 
+
+}
+
+}
+
+
+function loadPopuop(event)
+
+{
+
+debugger; var modal = document.getElementById("myModal");
+
+ 
+
+modal.style.display = "block";
+modalImg.src = event.currentTarget.src;
+
+img.onclick = function(){
+modal.style.display = "block";
+modalImg.src = event.currentTarget.src
+
+}
+ 
+}
+
+var modal = document.getElementById("myModal");
+
+ 
+var modalImg = document.getElementById("img01");
+
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+debugger;
+modal.style.display = "none";
+}
+
+</script>
+</html>
